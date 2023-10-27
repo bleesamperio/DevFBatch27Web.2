@@ -5,5 +5,3 @@ function esPAR(numero){
 }
 
 console.log(esPAR(50));
-
-
