@@ -1,12 +1,11 @@
 import './App.css'
+import ToDoList from './Components/ToDoList'
 
 function App() {
 
   return (
     <>
-      <h1>
-        App
-      </h1>
+        <ToDoList/>
     </>
   )
 }
