@@ -1,26 +1,25 @@
 import { useState } from "react"
-import ToDoItem from "./ToDoItem";
-    const ToDoList = () => {
-        const [inputValue, setInputValue] = useState('')
-        const [tareas, setTareas] = useState([])
+import ToDoItem from "./ToDoItem"
 
-        const handleAdd = ()=>{
-            if (inputValue.trim()) {
-                /** metodo push para setTareas 
-                const tareasTemporal = [...tareas]
-                tareasTemporal.push(inputValue)
-                setTareas(setTareas)*/
+const ToDoList = () => {
+    const [inputValue, setInputValue] = useState('')
+    const [tareas, setTareas] = useState([])
 
-                setTareas(...tareas, inputValue)
-                setInputValue('')
-            }
+    const handleAdd = () => {
+        if(inputValue.trim()){
+        // const tareasTemporal = [...tareas]
+        // tareasTemporal.push(inputValue)
+        setTareas([...tareas, inputValue])
+        setInputValue('')
         }
+    }
 
-        const handleDelete = (indiceTarea)=>{
-            setTareas(tareas.filter((tarea, indice)=> indice!== indiceTarea))
-        }
+    const handleDelete = (indiceTarea) => {
+        setTareas(tareas.filter((tarea, indice)=> indice !== indiceTarea))
+    }
 
-        return (
+
+    return (
         <div>
             <h1>Lista de Tareas</h1>
             <input
@@ -28,11 +27,7 @@ import ToDoItem from "./ToDoItem";
                 value={inputValue}
                 onChange={(evento) => setInputValue(evento.target.value)}
             />
-            <button
-                className="add-button" onClick={handleAdd}
-            >
-                Agregar
-            </button>
+            <button className="add-button" onClick={handleAdd}>Agregar</button>
             <ul>
                 {tareas.map((tarea, indice)=>(
                     <ToDoItem todo={tarea} handleDelete={() => handleDelete(indice)} key={indice} />
@@ -40,5 +35,6 @@ import ToDoItem from "./ToDoItem";
             </ul>
         </div>
     )
-}
+    }
+
 export default ToDoList
