@@ -1,4 +1,5 @@
 import { useState } from "react"
+import ToDoItem from "./ToDoItem";
 const ToDoList = () => {
 
 const handleAdd = ()=>{
@@ -19,6 +20,7 @@ const [inputValue, setInputValue] = useState('')
         Agregar
     </button>
     <ul>
+        <ToDoItem todo='Item Dinamico' handleDelete={(e)=> console.log('Borre item')}/>
         <li>
         Item 1
         <button>Eliminar</button>
