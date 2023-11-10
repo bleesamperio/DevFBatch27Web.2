@@ -34,8 +34,8 @@ import ToDoItem from "./ToDoItem";
                 Agregar
             </button>
             <ul>
-                {tareas.map((tarea)=>(
-                    <ToDoItem todo={tarea} handleDelete={(e)=> console.log('Borre item')}/>
+                {tareas.map((tarea, indice)=>(
+                    <ToDoItem todo={tarea} handleDelete={() => handleDelete(indice)} key={indice} />
                 ))}
             </ul>
         </div>
