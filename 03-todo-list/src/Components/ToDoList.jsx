@@ -1,11 +1,22 @@
 import { useState } from "react"
 import ToDoItem from "./ToDoItem";
 const ToDoList = () => {
+    const [inputValue, setInputValue] = useState('')
+    const [tareas, setTareas] = useState([])
 
-const handleAdd = ()=>{
-    console.log('agregue:', inputValue);
-}
-const [inputValue, setInputValue] = useState('')
+    const handleAdd = ()=>{
+        if (inputValue.trim()) {
+            /** metodo push para setTareas 
+            const tareasTemporal = [...tareas]
+            tareasTemporal.push(inputValue)
+            setTareas(setTareas)*/
+            
+            setTareas(...tareas, inputValue)
+            setInputValue('')
+        }
+    }
+
+
     return (
     <div>
     <h1>Lista de Tareas</h1>
